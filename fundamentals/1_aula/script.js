@@ -1,4 +1,4 @@
-const age = 13;
+const age = 19;
 const isOldEnough = age >= 18;
 
 if(isOldEnough){
