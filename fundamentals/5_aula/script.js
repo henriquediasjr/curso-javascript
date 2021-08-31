@@ -21,3 +21,11 @@ const johnBmi = calcBMI(john.mass, john.height);
  
 
  console.log(markBmi, johnBmi)
+
+
+ const teste = [
+     'henrique',
+     16,
+     'curitiba'
+ ]
+ console.log(teste.length - 1)
