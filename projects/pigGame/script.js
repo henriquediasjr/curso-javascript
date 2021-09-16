@@ -83,3 +83,28 @@ btnHold.addEventListener('click', function () {
 
   //switch to the next player
 });
+
+btnNew.addEventListener('click', function () {
+  console.log('new event');
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+
+  if (
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.contains('player--winner')
+  ) {
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--winner');
+
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+
+    diceEl.classList.add('hidden');
+
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.add('player--active');
+  }
+});
