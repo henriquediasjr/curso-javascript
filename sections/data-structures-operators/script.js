@@ -30,7 +30,39 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  // orderDelivery: function (obj) {
+  //   console.log(obj);
+  // },    Doing destruction right away in this example below
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  orderPast: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious past with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+restaurant.orderDelivery({
+  address: 'Rua Rosalino Mazziotti, 439',
+  starterIndex: 1,
+});
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
 
 const {
   name: restaurantName,
@@ -46,5 +78,52 @@ console.log(menu, starters);
 //Mutating Values
 let a = 111;
 let b = 999;
-const obj = { a: 23, b: 7, c: 14 }(({ a, b } = obj));
+const obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj);
 console.log(a, b);
+
+//Nested objects
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+
+//Spread operator
+
+const arr = [3, 4, 5];
+console.log('This is the Default: ', arr);
+
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log('This is the bad: ', badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log('This is the Good with Spread operator(...): ', newArr);
+
+const Cardapio = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(Cardapio);
+
+const str = 'henrique';
+const letters = [...str, ' '];
+console.log(letters); //or
+console.log(...str);
+
+const ingredients = [
+  // prompt("Let's start with ing 1: "),
+  // prompt('ing 2: '),
+  // prompt('ing 3'),
+];
+console.log(ingredients);
+
+restaurant.orderPast(...ingredients);
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(1, 2);
+add(3, 4, 5);
+add(6, 7, 8, 9, 10);
