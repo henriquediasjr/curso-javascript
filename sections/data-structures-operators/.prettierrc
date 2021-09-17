@@ -1,3 +1,5 @@
 {
-  "arrowParens": "false"
-}
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  }
+  
