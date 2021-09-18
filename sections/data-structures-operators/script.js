@@ -127,3 +127,9 @@ const add = function (...numbers) {
 add(1, 2);
 add(3, 4, 5);
 add(6, 7, 8, 9, 10);
+
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+//WITH optional chaining
+console.log(restaurant.openingHours.mon?.open);
