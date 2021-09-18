@@ -133,3 +133,21 @@ if (restaurant.openingHours && restaurant.openingHours.mon) {
 }
 //WITH optional chaining
 console.log(restaurant.openingHours.mon?.open);
+////////
+
+const question = new Map([
+  ['question', 'What is the best programming language?'],
+  [1, 'c'],
+  [2, 'java'],
+  [3, 'javaScript'],
+  ['correct', 3],
+  [true, 'Correct answer'],
+  [false, 'Try again!'],
+]);
+
+console.log(question);
+
+// Converting object to map
+console.log(Object.entries(openingHours)); // basically same structure above that is array inside array and inside each array have a value and its answer
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
