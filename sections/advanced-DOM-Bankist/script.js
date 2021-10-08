@@ -200,3 +200,7 @@ const slider = function () {
   });
 };
 slider();
+
+(function () {
+  return console.log('Hello world');
+})();
